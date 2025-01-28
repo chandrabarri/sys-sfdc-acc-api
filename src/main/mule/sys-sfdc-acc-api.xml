@@ -124,7 +124,8 @@ output application/json
         </error-handler>
     </flow>
     <flow name="post:\accounts:application\json:sys-sfdc-acc-api-config">
-        <ee:transform doc:name="Transform Message">
+        <logger level="INFO" doc:name="Entry Logger" doc:id="0499a320-85ed-4da7-bfb6-96a8105edfaf" message="******Entry Logger******"/>
+		<ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -136,5 +137,6 @@ output application/json
 ] as Array {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
             </ee:message>
         </ee:transform>
+		<logger level="INFO" doc:name="Exit  Logger" doc:id="a40ccf38-fbab-42cf-a3b9-81a7fefca12e" message="******Exit  Logger******"/>
     </flow>
 </mule>
